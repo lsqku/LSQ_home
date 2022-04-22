@@ -1,12 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>鼠标移过，改变图片路径</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box,img {
+            border-radius: 7px;
+        }
+        .box {
+            width: 210px;
+            margin: 10px auto;
+            padding: 10px;
+            background: black;
+            overflow: hidden;
+        }
+        .box img {
+            float: left;
+            margin: 2px 2px 0 0;
+        }
+        .box img.clear {
+            clear: both;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="box">
+        <div id="big">
+            <img src="./image/big_1.jpg">
+        </div>
+        <img src="./image/small_1.jpg">
+        <img src="./image/small_2.jpg">
+        <img src="./image/small_3.jpg">
+        <img class="clear" src="./image/small_4.jpg">
+        <img src="./image/small_5.jpg">
+        <img src="./image/small_6.jpg">
+        <img src="./image/small_7.jpg">
+        <img src="./image/small_8.jpg">
+        <img src="./image/small_9.jpg">
+        <img src="./image/small_10.jpg">
+        <img src="./image/small_11.jpg">
+    </div>
 </body>
+<script>
+    var imgs = document.querySelector(".box").querySelectorAll("img");
+        for (var i=1;i<imgs.length;i++) {
+            imgs[i].index = i;
+            imgs[i].onmouseover = function() {
+                imgs[0].src = "./image/big_" + this.index + ".jpg";
+            };
+        }
+</script>
 </html>
